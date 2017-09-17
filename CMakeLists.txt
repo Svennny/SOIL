@@ -1,0 +1,8 @@
+cmake_minimum_required (VERSION 2.8)
+find_package (OpenGL REQUIRED)
+project (SOIL)
+add_library (SOIL STATIC src/image_DXT.c src/image_helper.c src/SOIL.c src/stb_image_aug.c)
+target_link_libraries (SOIL ${OPENGL_LIBRARIES})
+project (testSOIL)
+add_executable (testSOIL src/test_SOIL.cpp src/SOIL.h)
+target_link_libraries (testSOIL SOIL ${OPENGL_LIBRARIES})
